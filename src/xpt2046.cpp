@@ -16,6 +16,9 @@ XPT2046::XPT2046(SPIClass &spi, byte cs, uint8_t tirq) {
     pinMode(_cs, OUTPUT);
     digitalWrite(_cs, HIGH);
 
+    pinMode(_tirq, INPUT); //! added line to solve the error related to the fact that the pin is not set as GPIO for esp32s3
+    
+
     _hmin = 0;
     _hmax = 4095;
     _vmin = 0;
